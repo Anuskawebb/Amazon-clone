@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Clone</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,41 +21,273 @@
                 </div>
             </div>
             <div class="navsearch">
+                <select class="searchselect">
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Clothes</option>
+                    <option>Books</option>
+                    <option>Furniture</option>
+                    <option>Beauty</option>
+                </select>
                 <input placeholder="Search Amazon" class="searchinput">
                 <div class="searchicon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="navsignin border">
+            <div class="navsignin border" id="signin-popup-trigger">
                 <p><span>Hello, sign in</span></p>
                 <p class="navsecond">Accounts & Lists</p>
             </div>
-            <div class="navcart border">
+            <div class="navreturns border">
+                <p><span>Returns</span></p>
+                <p class="navsecond">& Orders</p>
+            </div>
+            <div class="navcart border" id="cart-popup-trigger">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <p>Cart (<span id="cart-count">0</span>)</p>
             </div>
         </div>
+
+        <div class="subnav">
+            <ul>
+                <li><i class="fa-solid fa-bars"></i> All</li>
+                <li>Today's Deals</li>
+                <li>Customer Service</li>
+                <li>Registry</li>
+                <li>Gift Cards</li>
+                <li>Sell</li>
+            </ul>
+        </div>
     </header>
 
-    <div class="shopsection">
-        <div class="box" data-name="Clothes" data-price="999">
-            <h2>Clothes</h2>
-            <div class="boximg" style="background-image: url('box1_image.jpg');"></div>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
-        <div class="box" data-name="Electronics" data-price="4999">
-            <h2>Electronics</h2>
-            <div class="boximg" style="background-image: url('box4_image.jpg');"></div>
-            <button class="add-to-cart">Add to Cart</button>
+    <div class="hero">
+        <div class="hero-msg">
+            <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a href="#">Click here to go to amazon.in</a></p>
         </div>
     </div>
 
-    <div class="popup">
+    <div class="shopsection">
+        <!-- Original Products -->
+        <div class="box" data-name="Men's Casual Shirt" data-price="1499" data-original-price="2999" data-discount="50" data-rating="4.5" data-reviews="2,345">
+            <div class="box-content">
+                <h2>Men's Casual Shirt</h2>
+                <div class="boximg" style="background-image: url('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80');"></div>
+                <div class="product-info">
+                    <div class="price">
+                        <span class="original-price">₹2,999</span>
+                        <span class="discount">-50%</span>
+                        <div><span class="currency">₹</span><span class="amount">1,499</span></div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★½</div>
+                        <span class="review-count">2,345</span>
+                    </div>
+                    <div class="prime">
+                        <i class="fa-solid fa-check"></i> Prime
+                    </div>
+                    <div class="delivery-date">Get it by Tomorrow</div>
+                    <div class="stock">In stock</div>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-name="Wireless Earbuds" data-price="4999" data-original-price="7999" data-discount="38" data-rating="4.7" data-reviews="12,789">
+            <div class="box-content">
+                <h2>Wireless Earbuds with Active Noise Cancellation</h2>
+                <div class="boximg" style="background-image: url('https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80');"></div>
+                <div class="product-info">
+                    <div class="price">
+                        <span class="original-price">₹7,999</span>
+                        <span class="discount">-38%</span>
+                        <div><span class="currency">₹</span><span class="amount">4,999</span></div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-count">12,789</span>
+                    </div>
+                    <div class="prime">
+                        <i class="fa-solid fa-check"></i> Prime
+                    </div>
+                    <div class="delivery-date">Get it by Tomorrow</div>
+                    <div class="stock">Only 5 left in stock</div>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Products -->
+        <div class="box" data-name="Smart LED TV" data-price="29999" data-original-price="49999" data-discount="40" data-rating="4.6" data-reviews="3,456">
+            <div class="box-content">
+                <h2>43-inch 4K Smart LED TV</h2>
+                <div class="boximg" style="background-image: url('https://images.unsplash.com/photo-1593784991095-a205069533cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80');"></div>
+                <div class="product-info">
+                    <div class="price">
+                        <span class="original-price">₹49,999</span>
+                        <span class="discount">-40%</span>
+                        <div><span class="currency">₹</span><span class="amount">29,999</span></div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★½</div>
+                        <span class="review-count">3,456</span>
+                    </div>
+                    <div class="prime">
+                        <i class="fa-solid fa-check"></i> Prime
+                    </div>
+                    <div class="delivery-date">FREE delivery in 2 days</div>
+                    <div class="stock">In stock</div>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-name="Gaming Laptop" data-price="89999" data-original-price="129999" data-discount="31" data-rating="4.8" data-reviews="1,234">
+            <div class="box-content">
+                <h2>15.6" Gaming Laptop with RTX 3060</h2>
+                <div class="boximg" style="background-image: url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80');"></div>
+                <div class="product-info">
+                    <div class="price">
+                        <span class="original-price">₹1,29,999</span>
+                        <span class="discount">-31%</span>
+                        <div><span class="currency">₹</span><span class="amount">89,999</span></div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-count">1,234</span Continuing the index.html file content exactly where it left off:
+
+                    </div>
+                    <div class="prime">
+                        <i class="fa-solid fa-check"></i> Prime
+                    </div>
+                    <div class="delivery-date">FREE delivery in 3-5 days</div>
+                    <div class="stock">Only 2 left in stock</div>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-name="Fitness Smartwatch" data-price="2499" data-original-price="4999" data-discount="50" data-rating="4.4" data-reviews="5,678">
+            <div class="box-content">
+                <h2>Fitness Tracker with Heart Rate Monitor</h2>
+                <div class="boximg" style="background-image: url('https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80');"></div>
+                <div class="product-info">
+                    <div class="price">
+                        <span class="original-price">₹4,999</span>
+                        <span class="discount">-50%</span>
+                        <div><span class="currency">₹</span><span class="amount">2,499</span></div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★½</div>
+                        <span class="review-count">5,678</span>
+                    </div>
+                    <div class="prime">
+                        <i class="fa-solid fa-check"></i> Prime
+                    </div>
+                    <div class="delivery-date">Get it by Tomorrow</div>
+                    <div class="stock">In stock</div>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-name="Coffee Maker" data-price="1999" data-original-price="3499" data-discount="43" data-rating="4.3" data-reviews="789">
+            <div class="box-content">
+                <h2>Automatic Coffee Maker with Timer</h2>
+                <div class="boximg" style="background-image: url('https://images.unsplash.com/photo-1517914309068-900c5828c437?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80');"></div>
+                <div class="product-info">
+                    <div class="price">
+                        <span class="original-price">₹3,499</span>
+                        <span class="discount">-43%</span>
+                        <div><span class="currency">₹</span><span class="amount">1,999</span></div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★½</div>
+                        <span class="review-count">789</span>
+                    </div>
+                    <div class="prime">
+                        <i class="fa-solid fa-check"></i> Prime
+                    </div>
+                    <div class="delivery-date">Get it by Tomorrow</div>
+                    <div class="stock">In stock</div>
+                </div>
+                <div class="buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Popup -->
+    <div class="popup" id="product-popup">
         <div class="popup-content">
             <span class="close-btn">&times;</span>
-            <h2>Product Details</h2>
-            <p class="product-name"></p>
-            <p class="product-price"></p>
+            <div class="product-details">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h2 class="product-name"></h2>
+                    <div class="product-rating"></div>
+                    <div class="product-price"></div>
+                    <div class="product-description">
+                        <h3>About this item</h3>
+                        <ul>
+                            <li>High-quality material</li>
+                            <li>Perfect fit and comfort</li>
+                            <li>Durable and long-lasting</li>
+                            <li>Easy to maintain</li>
+                            <li>1 year warranty</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="popup" id="cart-popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-summary">
+                <p class="cart-total">Subtotal (<span id="cart-items-count">0</span> items): <span class="currency">₹</span><span id="cart-total">0</span></p>
+                <button class="checkout-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Popup -->
+    <div class="popup" id="signin-popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="signin-button">Sign In</button>
+            </form>
+            <p class="create-account">New to Amazon? <a href="#">Create your Amazon account</a></p>
         </div>
     </div>
 
